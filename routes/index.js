@@ -7,6 +7,8 @@ var Cart = require('../models/cart');
 var products = JSON.parse(fs.readFileSync('./data/products.json', 'utf8'));
 
 router.get('/', function (req, res, next) {
+  var productId = products && products[0].id;
+
   res.render('index', 
   { 
     title: 'NodeJS Shopping Cart',
@@ -16,6 +18,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/add/:id', function(req, res, next) {
+
   var productId = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart : {});
   var product = products.filter(function(item) {
@@ -24,6 +27,7 @@ router.get('/add/:id', function(req, res, next) {
   cart.add(product[0], productId);
   req.session.cart = cart;
   res.redirect('/');
+  inline();
 });
 
 router.get('/cart', function(req, res, next) {
