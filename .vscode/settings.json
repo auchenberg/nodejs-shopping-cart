@@ -1,0 +1,5 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}"
+    ]
+}
