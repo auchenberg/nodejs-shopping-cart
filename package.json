@@ -6,7 +6,7 @@
   "private": false,
   "scripts": {
     "start": "node ./bin/www",
-    "start_azure_debug": "if [[ ${APPSVC_TUNNEL_PORT} != \"\" ]]; then node --inspect=0.0.0.0:$APPSVC_TUNNEL_PORT ./bin/www; else npm run start; fi",
+    "start_azure_debug": "if [[ ${APPSVC_TUNNEL_PORT} != \"\" ]]; then node --inspect=0.0.0.0:$APPSVC_TUNNEL_PORT ./bin/www; else npm run start; fi"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
